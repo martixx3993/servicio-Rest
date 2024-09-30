@@ -1,0 +1,25 @@
+const express = require('express');
+const app = express();
+const port = 80;
+
+app.use(express.json());
+
+app.get('/api/resource', (req, res) => {
+    res.send('GET request to the resource');
+});
+
+app.post('/api/resource', (req, res) => {
+    res.send('POST request to the resource');
+});
+
+app.put('/api/resource/:id', (req, res) => {
+    res.send(`PUT request to the resource with ID ${req.params.id}`);
+});
+
+app.delete('/api/resource/:id', (req, res) => {
+    res.send(`DELETE request to the resource with ID ${req.params.id}`);
+});
+
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}/`);
+});
